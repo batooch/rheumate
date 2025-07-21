@@ -9,8 +9,7 @@ import Register from "@/pages/Register.tsx";
 import {Toaster} from "sonner";
 import axios from "axios";
 import RegisterSkipPage from "@/pages/RegisterSkipPage.tsx";
-import Bericht from "@/pages/Bericht.tsx";
-import UserSummaryKI from "@/pages/UserSummaryKI.tsx";
+import BerichtDownload from "@/pages/BerichtDownload.tsx";
 import ArztNachricht from "@/pages/ArztNachricht.tsx";
 import SelfMessageWrite from "./pages/SelfMessageWrite.js";
 import SelfMessageGet from "@/pages/SelfMessageGet.tsx";
@@ -52,12 +51,11 @@ function App() {
                     <Route path="/chat" element={<Chat/>}/>
                     <Route path="/profil" element={<MeinProfil/>}/>
                     <Route path="/homepage" element={<Homepage/>}/>
-                    <Route path="/bericht" element={<Bericht/>}/>
-                    <Route path="/user/ki/sum" element={<UserSummaryKI/>}/>
+                    <Route path="/berichtdownload" element={<BerichtDownload/>}/>
                     <Route path="/arzt-nachricht" element={<ArztNachricht/>}/>
                     <Route path="/profilSeite" element={<ProfilSeite/>}/>
                 </Routes>
-                <Toaster richColors position="bottom-right" />
+                <Toaster richColors position="bottom-right"/>
             </BrowserRouter>
             <Toaster richColors position="bottom-right"/>
         </div>

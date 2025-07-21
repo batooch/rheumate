@@ -1,15 +1,15 @@
-import { useContext } from 'react';
-import { Link } from "react-router-dom";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar.tsx";
+import {useContext} from 'react';
+import {Link} from "react-router-dom";
+import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar.tsx";
 import benutzerChatIcon from "../images/benutzerChatIcon.png";
 import Logout from "@/components/Logout.tsx";
-import BerichtGenerierung from "@/components/BerichtGenerierung.tsx";
-import { useLocation } from "react-router-dom";
-import { AuthContext } from "@/context/authContext.tsx";
+import BerichtDownloadButton from "@/components/BerichtDownloadButton.tsx";
+import {useLocation} from "react-router-dom";
+import {AuthContext} from "@/context/authContext.tsx";
 
 
 function Navbar() {
-    const { token } = useContext(AuthContext);
+    const {token} = useContext(AuthContext);
     const location = useLocation();
 
     const hideOnRoutes = ['/LoginForm', '/Register', '/RegisterSkipPage'];
@@ -25,19 +25,19 @@ function Navbar() {
                 {token && !shouldHidePart && (
                     <nav className="flex gap-4 items-center">
                         <Link to="/diagramme" className="ml-6 text-lg font-semibold text-gray-800">
-                            Diagramme
+                            Gesundheitsverlauf
                         </Link>
                         <Link to="/chat" className="ml-6 text-lg font-semibold text-gray-800">
                             Mein Chat
                         </Link>
                         <Link to="/profilSeite" className="ml-2">
                             <Avatar className="w-8 h-8">
-                                <AvatarImage src={benutzerChatIcon} />
+                                <AvatarImage src={benutzerChatIcon}/>
                                 <AvatarFallback>B</AvatarFallback>
                             </Avatar>
                         </Link>
-                        <BerichtGenerierung />
-                        <Logout />
+                        <BerichtDownloadButton/>
+                        <Logout/>
                     </nav>
                 )}
             </div>

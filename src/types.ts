@@ -41,3 +41,20 @@ export type MySpeechRecognition = {
     onend: () => void;
     onstart: () => void;
 };
+
+
+export interface StiffnessEntry {
+    date: string;
+    present: boolean;
+}
+
+export interface MentalBurdenEntry {
+    date: string;
+    level: number;
+}
+
+export interface ChartData {
+    date: string;
+    temperatur: number;
+    mentalBurden: number;
+}
