@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast } from "sonner";
+import {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
+import {toast} from "sonner";
 import api from "@/services/apiService";
-import { Medicament } from "@/types.ts";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import {Medicament} from "@/types.ts";
+import {Card, CardHeader, CardTitle, CardContent} from "@/components/ui/card";
+import {Button} from "@/components/ui/button";
+import {Avatar, AvatarImage, AvatarFallback} from "@/components/ui/avatar";
 import benutzerChatIcon from "../images/benutzerChatIcon.png";
-import { useLocation } from "react-router-dom";
+import {useLocation} from "react-router-dom";
 
 function ProfilSeite() {
     const [data, setData] = useState<any>(null);
@@ -21,7 +21,7 @@ function ProfilSeite() {
                 const raw = response.data;
                 console.log("Daten vom Backend:", raw);
 
-                // Medikamente aufbauen
+
                 const medicaments: Medicament[] = raw.medicationName
                     ? [{
                         name: raw.medicationName,
@@ -32,7 +32,7 @@ function ProfilSeite() {
                     }]
                     : [];
 
-                // Alle Daten zusammenführen
+
                 const userData = {
                     ...raw,
                     medicaments
@@ -53,7 +53,7 @@ function ProfilSeite() {
         <div className="p-6 max-w-3xl mx-auto">
             <div className="flex items-center gap-6 mb-6">
                 <Avatar className="w-20 h-20 border">
-                    <AvatarImage src={benutzerChatIcon} />
+                    <AvatarImage src={benutzerChatIcon}/>
                     <AvatarFallback>B</AvatarFallback>
                 </Avatar>
                 <div>
@@ -62,7 +62,7 @@ function ProfilSeite() {
                 </div>
             </div>
 
-            {/* Stammdaten */}
+
             <Card className="mb-6">
                 <CardHeader>
                     <CardTitle>Stammdaten</CardTitle>
@@ -75,7 +75,6 @@ function ProfilSeite() {
                 </CardContent>
             </Card>
 
-            {/* Diagnose */}
             <Card className="mb-6">
                 <CardHeader>
                     <CardTitle>Rheuma-Diagnose</CardTitle>
@@ -86,7 +85,7 @@ function ProfilSeite() {
                 </CardContent>
             </Card>
 
-            {/* Medikamente */}
+
             <Card className="mb-6">
                 <CardHeader>
                     <CardTitle>Medikamente</CardTitle>
@@ -98,7 +97,8 @@ function ProfilSeite() {
                                 <li key={index} className="border p-2 rounded">
                                     <p><strong>Name:</strong> {med.name}</p>
                                     <p><strong>Häufigkeit:</strong> {med.frequency.join(", ")}</p>
-                                    <p><strong>Dauer:</strong> {med.durationDays}T / {med.durationWeeks}W / {med.durationMonths}M</p>
+                                    <p><strong>Dauer:</strong> {med.durationDays}T / {med.durationWeeks}W
+                                        / {med.durationMonths}M</p>
                                 </li>
                             ))}
                         </ul>
@@ -108,7 +108,7 @@ function ProfilSeite() {
                 </CardContent>
             </Card>
 
-            {/* Bearbeiten-Button */}
+
             <div className="flex justify-end">
                 <Button
                     className="bg-[#224c70] text-white hover:bg-[#1a3a57]"

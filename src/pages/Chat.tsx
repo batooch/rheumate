@@ -10,7 +10,6 @@ import {getStreakData, getTodayData} from "@/services/streakService";
 import {getProgress} from "@/services/progressService.tsx";
 import {useNavigate} from "react-router-dom";
 import ButtonSelfMessage from "@/components/ButtonSelfMessage.tsx";
-import ChatSpeech from "@/components/ChatSpeech.tsx";
 
 
 function Chat() {
@@ -19,7 +18,6 @@ function Chat() {
     const [messages, setMessages] = useState<Message[]>([]);
     const [streakCount, setStreakCount] = useState<number | null>(null);
     const [todayCount, setTodayCount] = useState<number | null>(null);
-    const [isListening, setIsListening] = useState(false);
     const navigate = useNavigate();
 
     //streak-effekt
@@ -311,7 +309,6 @@ function Chat() {
             */}
 
 
-            {/* Nachrichtenbereich */}
             <div className="w-full max-w-[800px] flex-grow overflow-y-auto px-4 mt-[6vh] mb-[26vh]">
                 {messages.map((msg, index) => {
                     const isUser = msg.sender === "user";
@@ -364,7 +361,7 @@ function Chat() {
                 ))}
             </div>
 
-            {/* Eingabefeld */}
+
             <form
                 onSubmit={handleSubmit}
                 className="absolute bottom-[10vh] w-full max-w-[800px] flex bg-white border border-gray-300 rounded-xl p-[10px_15px] shadow-sm"

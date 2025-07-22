@@ -13,8 +13,6 @@ import api from "@/services/apiService"
 import ButtonUserKISum from "@/components/ButtonUserKISum.tsx";
 
 
-// ... (Imports bleiben gleich)
-
 function MeinProfil() {
 
     const [forename, setForename] = useState<string>("");
@@ -31,7 +29,6 @@ function MeinProfil() {
         durationMonths: ""
     });
 
-    // toggleFrequency bleibt gleich
     const toggleFrequency = (time: string) => {
         setNewMed((prev) => ({
             ...prev,
@@ -41,13 +38,13 @@ function MeinProfil() {
         }));
     };
 
-    // handleMedAdd bleibt gleich
+
     const handleMedAdd = () => {
         setMedicaments([...medicaments, newMed]);
         setNewMed({name: "", frequency: [], durationDays: "", durationWeeks: "", durationMonths: ""});
     };
 
-    // handleMedDelete bleibt gleich
+
     const handleMedDelete = (indexToDelete: number) => {
         setMedicaments((prev) => prev.filter((_, index) => index !== indexToDelete));
     };
@@ -60,7 +57,7 @@ function MeinProfil() {
 
                 setForename(data.firstName ?? "");
                 setLastName(data.lastName ?? "");
-                setBirthdate(data.birthDate? new Date(data.birthDate) : undefined);
+                setBirthdate(data.birthDate ? new Date(data.birthDate) : undefined);
                 setRheumaType(data.rheumaticType ?? "");
                 setDiagnosisDate(data.diagnosisDate ? new Date(data.diagnosisDate) : undefined);
                 setMedicaments(Array.isArray(data.medicaments) ? data.medicaments : []);
@@ -153,7 +150,7 @@ function MeinProfil() {
                             <Label className="block font-medium mb-1">Diagnose-Typ:</Label>
                             <Select value={rheumaType ?? ""} onValueChange={setRheumaType}>
                                 <SelectTrigger>
-                                    <SelectValue style={{ color: "#999999" }} placeholder="Diagnose auswählen" />
+                                    <SelectValue style={{color: "#999999"}} placeholder="Diagnose auswählen"/>
                                 </SelectTrigger>
                                 <SelectContent className="bg-white z-50">
                                     <SelectItem value="Rheuma 1">Rheuma 1</SelectItem>
@@ -175,16 +172,16 @@ function MeinProfil() {
                         <CardTitle>Deine Medikamente</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-6">
-                        {/* Name */}
+
                         <div className="space-y-2">
                             <Label className="block font-medium">Name</Label>
                             <Input
                                 value={newMed.name ?? ""}
-                                onChange={(e) => setNewMed({ ...newMed, name: e.target.value })}
+                                onChange={(e) => setNewMed({...newMed, name: e.target.value})}
                             />
                         </div>
 
-                        {/* Häufigkeit */}
+
                         <div className="space-y-2">
                             <Label className="block font-medium">Häufigkeit</Label>
                             <div className="flex gap-2 flex-wrap">
@@ -195,16 +192,16 @@ function MeinProfil() {
                                         variant={newMed.frequency.includes(label) ? "default" : "outline"}
                                         onClick={() => toggleFrequency(label)}
                                     >
-                                        {label === "morgens" && <Sunrise className="mr-1 h-4 w-4" />}
-                                        {label === "mittags" && <Sun className="mr-1 h-4 w-4" />}
-                                        {label === "abends" && <Sunset className="mr-1 h-4 w-4" />}
+                                        {label === "morgens" && <Sunrise className="mr-1 h-4 w-4"/>}
+                                        {label === "mittags" && <Sun className="mr-1 h-4 w-4"/>}
+                                        {label === "abends" && <Sunset className="mr-1 h-4 w-4"/>}
                                         {label}
                                     </Button>
                                 ))}
                             </div>
                         </div>
 
-                        {/* Dauer */}
+
                         <div className="space-y-2">
                             <Label className="block font-medium">Dauer</Label>
                             <div className="flex gap-4">
@@ -215,7 +212,7 @@ function MeinProfil() {
                                         className="w-22 placeholder:text-xs"
                                         value={newMed.durationDays}
                                         onChange={(e) =>
-                                            setNewMed({ ...newMed, durationDays: e.target.value })
+                                            setNewMed({...newMed, durationDays: e.target.value})
                                         }
                                     />
                                     <span className="text-sm text-gray-600">Tage</span>
@@ -227,7 +224,7 @@ function MeinProfil() {
                                         className="w-22 placeholder:text-xs"
                                         value={newMed.durationWeeks}
                                         onChange={(e) =>
-                                            setNewMed({ ...newMed, durationWeeks: e.target.value })
+                                            setNewMed({...newMed, durationWeeks: e.target.value})
                                         }
                                     />
                                     <span className="text-sm text-gray-600">Wochen</span>
@@ -239,7 +236,7 @@ function MeinProfil() {
                                         className="w-22 placeholder:text-xs"
                                         value={newMed.durationMonths}
                                         onChange={(e) =>
-                                            setNewMed({ ...newMed, durationMonths: e.target.value })
+                                            setNewMed({...newMed, durationMonths: e.target.value})
                                         }
                                     />
                                     <span className="text-sm text-gray-600">Monate</span>
@@ -247,12 +244,12 @@ function MeinProfil() {
                             </div>
                         </div>
 
-                        {/* Button */}
+
                         <Button variant="outline" onClick={handleMedAdd}>
                             Medikament hinzufügen
                         </Button>
 
-                        {/* Medikamentenliste */}
+
                         {medicaments.length > 0 && (
                             <ul className="mt-4 space-y-2">
                                 {medicaments.map((med, index) => (
@@ -288,7 +285,7 @@ function MeinProfil() {
                 </div>
             </div>
         </div>
-);
+    );
 }
 
 export default MeinProfil;

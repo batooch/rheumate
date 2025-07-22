@@ -1,20 +1,20 @@
-import { Card, CardContent } from "@/components/ui/card.tsx";
-import { Label } from "@/components/ui/label.tsx";
-import { Input } from "@/components/ui/input.tsx";
-import { Button } from "@/components/ui/button.tsx";
-import { useState, useContext } from "react";
+import {Card, CardContent} from "@/components/ui/card.tsx";
+import {Label} from "@/components/ui/label.tsx";
+import {Input} from "@/components/ui/input.tsx";
+import {Button} from "@/components/ui/button.tsx";
+import {useState, useContext} from "react";
 import * as React from "react";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import axios from "axios";
-import { toast } from "sonner";
-import { AuthContext } from "@/context/authContext.tsx";
+import {toast} from "sonner";
+import {AuthContext} from "@/context/authContext.tsx";
 
 function LoginForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    const { setToken } = useContext(AuthContext);
+    const {setToken} = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleLogin = async (e: React.FormEvent) => {

@@ -39,7 +39,7 @@ function Register() {
             if (response.status === 201 || response.status === 200) {
                 // Speichere den Token im Local Storage
                 localStorage.setItem("token", response.data.token);
-                
+
                 toast.success("Registrierung erfolgreich!");
                 navigate("/register/skip")
             }
@@ -59,24 +59,24 @@ function Register() {
                 <CardContent>
                     <form onSubmit={handleRegister} className="space-y-4">
                         <div className="flex gap-4">
-                        <div className="flex-1">
-                            <Label htmlFor="firstName">Vorname</Label>
-                            <Input
-                                id="firstName"
-                                type="text"
-                                value={firstName}
-                                onChange={(e) => setFirstName(e.target.value)}
-                            />
-                        </div>
-                        <div className="flex-1">
-                            <Label htmlFor="lastName">Nachname </Label>
-                            <Input
-                                id="lastName"
-                                type="text"
-                                value={lastName}
-                                onChange={(e) => setLastName(e.target.value)}
-                            />
-                        </div>
+                            <div className="flex-1">
+                                <Label htmlFor="firstName">Vorname</Label>
+                                <Input
+                                    id="firstName"
+                                    type="text"
+                                    value={firstName}
+                                    onChange={(e) => setFirstName(e.target.value)}
+                                />
+                            </div>
+                            <div className="flex-1">
+                                <Label htmlFor="lastName">Nachname </Label>
+                                <Input
+                                    id="lastName"
+                                    type="text"
+                                    value={lastName}
+                                    onChange={(e) => setLastName(e.target.value)}
+                                />
+                            </div>
                         </div>
                         <div>
                             <Label htmlFor="birthDate">Geburtsdatum</Label>
