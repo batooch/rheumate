@@ -5,6 +5,7 @@ import {
     Card,
     CardContent,
     CardHeader,
+
     CardTitle,
 } from "@/components/ui/card";
 import paperBg from "@/images/paper.jpg";
@@ -28,7 +29,7 @@ function SelfMessageWrite() {
             body: bodyText,
         });
     };
-
+//kommentartest
     const handleSave = async () => {
         if (!text.trim()) {
             toast.error("Bitte gib eine Nachricht ein.");
